@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Puttinha - Conteúdo Exclusivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://cdn.discordapp.com/attachments/1391032316645740644/1439691989988802804/Leise_Bach_44-abubl.jpg?ex=691b7126&is=691a1fa6&hm=39511b8b57679448c783886eb24dfec9ee63d9364d6c79b656649b1704fa7b78&');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+            background: rgba(15, 15, 15, 0.75);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 64, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #ff4081, #ff8a00, #ff4081);
+        }
+        
+        .logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff4081;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 25px rgba(255, 64, 129, 0.8);
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ff4081, #ff8a00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(255, 64, 129, 0.4);
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #f0f0f0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            padding: 0 5px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .description::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .description::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .description::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #ff4081, #ff8a00);
+            border-radius: 10px;
+        }
+        
+        .highlight {
+            color: #ff8a00;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+        }
+        
+        .btn {
+            padding: 18px 25px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(to right, #0088cc, #34AADF);
+            color: white;
+            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.8);
+        }
+        
+        .promo-badge {
+            background: linear-gradient(to right, #ff4081, #ff8a00);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+            box-shadow: 0 3px 10px rgba(255, 64, 129, 0.6);
+        }
+        
+        .footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #ccc;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 64, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
+            }
+        }
+        
+        .icon {
+            font-size: 1.4rem;
+        }
+        
+        .warning {
+            color: #ff4081;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+                max-height: 250px;
+            }
+            
+            .btn {
+                padding: 16px 20px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://cdn.discordapp.com/attachments/1391032316645740644/1439691989485617384/Leise_Bach_05-fktdm.jpg?ex=691b7126&is=691a1fa6&hm=ab016aefad69467ad07978696556d94743f9dc6d770be94f5f09875353096090&" alt="Sua Puttinha" class="logo pulse">
+        
+        <h1>Sua Puttinha</h1>
+        
+        <div class="description">
+            Aqui você vai <span class="highlight">investir</span> um valor super <span class="highlight">acessível</span> e vai encontrar muito <span class="highlight">vídeos e fotos</span>: Dando muuuito minha bucetinha rosinha no pelo com gozada dentro, fazendo oral bem babado olhando pra você, dando muito meu cuzinho. Brincando sozinha pra você na câmera. Lésbico com minhas amiguinhas, vídeos e fotos dos pezinhos. Vídeos de menage feminino e masculino. 
+            <br><br>
+            SÃO VARIAS <span class="highlight">mídias</span> QUE VOCÊ VAI TER ACESSO INSTANTANEAMENTE, DURANTE TODO O PERÍODO QUE ESTIVER POR AQUI 🍊🧡 TUDO SEM CENSURA, MOSTRANDO <span class="highlight">TUUUDINHO</span> 😈 
+            <br><br>
+            📲 E +: <span class="highlight">ACESSO AO CHAT DIRETAMENTE COMIGO</span>, dependendo da nossa conversa (se nos dermos bem) você pode até conseguir um <span class="highlight">encontro</span> 🙈
+        </div>
+        
+        <div class="buttons">
+            <a href="https://typebot.co/prazeronline" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp icon"></i> WhatsApp
+            </a>
+            <a href="https://teleg.one/VIPNANDA_bot" class="btn btn-telegram" target="_blank">
+                <i class="fab fa-telegram icon"></i> Telegram <span class="promo-badge">40% OFF</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            © 2025 - Conteúdo Exclusivo para Maiores de 18 Anos
+            <div class="warning">⚠️ ACESSO RESTRITO A ADULTOS</div>
+        </div>
+    </div>
+    
+    <script>
+        // Efeito de digitação para a descrição
+        document.addEventListener('DOMContentLoaded', function() {
+            const description = document.querySelector('.description');
+            const originalHTML = description.innerHTML;
+            description.innerHTML = '';
+            
+            let i = 0;
+            const text = originalHTML.replace(/<[^>]*>/g, '');
+            const tags = originalHTML.match(/<[^>]*>/g) || [];
+            let tagIndex = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    // Adiciona tags HTML no lugar correto
+                    if (tags[tagIndex] && originalHTML.indexOf(tags[tagIndex]) === i) {
+                        description.innerHTML += tags[tagIndex];
+                        i += tags[tagIndex].length;
+                        tagIndex++;
+                    } else {
+                        description.innerHTML += text.charAt(i);
+                        i++;
+                    }
+                    setTimeout(typeWriter, 20);
+                }
+            }
+            
+            // Iniciar efeito de digitação após um breve delay
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+</body>
+</html>
